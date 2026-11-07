@@ -1,0 +1,111 @@
+/* Additions on top of the AIvent template styles (public/css/style.css). */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* wordmark in place of the template logo image */
+.prumo-logo {
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1;
+}
+
+.prumo-hero-title {
+  font-size: clamp(34px, 5.2vw, 72px);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.prumo-hero-lead {
+  max-width: 760px;
+}
+
+@media (max-width: 993px) {
+  #inicio.mh-800 {
+    min-height: 100vh;
+  }
+  .prumo-hero-inner {
+    width: 100%;
+  }
+}
+
+.prumo-step-number {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+}
+
+/* marquee: two identical groups translate by one group width */
+.prumo-marquee {
+  display: flex;
+  width: max-content;
+  animation: prumo-marquee 60s linear infinite;
+}
+.prumo-marquee.right {
+  animation-direction: reverse;
+}
+.prumo-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+@keyframes prumo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ticket cards */
+.d-ticket h2.prumo-ticket-title {
+  font-size: clamp(24px, 2vw, 30px);
+  overflow-wrap: anywhere;
+}
+.prumo-ticket-brand {
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 22px;
+  position: relative;
+}
+.prumo-ticket-bg {
+  position: absolute;
+  right: 20px;
+  bottom: -10px;
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 140px;
+  line-height: 1;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* accordion slideUp/slideDown (300ms) */
+.prumo-slide {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.prumo-slide.open {
+  grid-template-rows: 1fr;
+}
+.prumo-slide > div {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prumo-marquee,
+  .rotate-animation {
+    animation: none;
+  }
+}
